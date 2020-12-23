@@ -1,17 +1,17 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   entry: {
-    cat: './src/Cat.js',
-    luna: './src/Luna.js',
+    cat: "./src/Cat.js",
+    luna: "./src/Luna.js",
   },
   output: {
-    filename: '[name]/[name].bundle.js',
-    chunkFilename: '[id].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "[name]/[name].bundle.js",
+    chunkFilename: "[id].js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -19,7 +19,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
     ],
@@ -27,9 +27,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
+      template: "./src/index.html",
+      filename: "index.html",
     }),
   ],
-
 };

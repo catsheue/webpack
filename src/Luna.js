@@ -1,5 +1,7 @@
-import React, { Suspense } from 'react';
-const OtherComponent = React.lazy(() => import('./Small'));
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+
+const OtherComponent = React.lazy(() => import("./Small"));
 
 function Luna() {
   return (
@@ -10,3 +12,5 @@ function Luna() {
     </div>
   );
 }
+
+ReactDOM.render(<Luna />, document.getElementById("cuteluna"));
