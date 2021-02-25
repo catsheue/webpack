@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open http://localhost:1000/",
+    "start": "webpack serve --open http://localhost:9000/",
     "build": "webpack --mode production"
   },
   "keywords": [],

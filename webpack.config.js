@@ -5,14 +5,19 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const path = require("path");
 
 module.exports = {
+  mode: "development",
   devtool: "inline-source-map",
   entry: {
-    cat: "./src/Cat.js",
-    luna: "./src/Luna.js",
+    cat: "./src/Cat.jsx",
+    luna: "./src/Luna.jsx",
+  },
+  devServer: {
+    contentBase: "./dist",
+    port: 9000,
   },
   output: {
     filename: "[name]/[name].bundle.js",
-    chunkFilename: "[id].js",
+    chunkFilename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -28,7 +33,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "index.html",
