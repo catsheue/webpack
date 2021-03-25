@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
@@ -29,6 +30,18 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(scss|css)$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
@@ -37,6 +50,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "index.html",
+    }),
+    new webpack.SourceMapDevToolPlugin({
+      filename: "[file].map",
+      publicPath: "http://localhost:8080/",
     }),
   ],
 };

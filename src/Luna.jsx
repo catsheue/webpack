@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 
 const OtherComponent = React.lazy(() =>
-  import(/* webpackChunkName: "Luna/Small" */ "./Small")
+  import(/* webpackChunkName: "Luna/Small" */ "./Small.jsx")
 );
 
 function Luna() {
