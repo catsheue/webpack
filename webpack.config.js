@@ -11,6 +11,7 @@ module.exports = {
   entry: {
     cat: "./src/Cat.jsx",
     luna: "./src/Luna.jsx",
+    index: "./src/index.js",
   },
   devServer: {
     contentBase: "./dist",
